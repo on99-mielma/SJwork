@@ -115,3 +115,22 @@ void Widget::paintEvent(QPaintEvent *)
     pix.load(":/menu/picture/maingrass.jpg");
     painter.drawPixmap(0,0,GAME_WIDTH,GAME_HEIGHT,pix);
 }
+/*void Widget::on_pushButton_clicked()
+{
+
+}*/
+void Widget::on_pushButton_3_clicked()
+{
+    emit exit();
+}
+
+void Widget::on_pushButton_clicked()
+{
+    emit begin();
+}
+
+void Widget::on_pushButton_4_clicked()
+{
+    /*qDebug*/
+    emit exit();
+}

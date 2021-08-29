@@ -9,9 +9,10 @@
 #include <QJsonDocument>
 #include <QPaintEvent>
 
-Game1::Game1(QWidget *parent) : QWidget(parent)
+Game1::Game1(QWidget *parent) : QWidget(parent)/*-,ui(new Ui::Game1)*/
 {
    initsqene();
+   /*ui->setupUi(this);*/
 }
 void Game1::initsqene()
 {
@@ -19,7 +20,7 @@ void Game1::initsqene()
     setWindowTitle(GAME_TITLE);
 }
 
-void Widget::paintEvent(QPaintEvent *)
+void Game1::paintEvent(QPaintEvent *)
 {
     QPainter p(this);
     QPen pen1;

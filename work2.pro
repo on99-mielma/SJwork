@@ -26,15 +26,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
-    game1.cpp
+    game1.cpp \
+    game2.cpp
 
 HEADERS += \
         widget.h \
     config.h \
-    game1.h
+    game1.h \
+    game2.h
 
 FORMS += \
-        widget.ui
+        widget.ui \
+    game2.ui
 
 RESOURCES += \
     picturelibrary.qrc
+
+DISTFILES += \
+    Test1Form.ui.qml \
+    Test1.qml
