@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/mouse">
+        <file>picture/mouse-face_1f42d.png</file>
+        <file>picture/new100100_mouse-face_1f42d.png</file>
+    </qresource>
+    <qresource prefix="/hammar">
+        <file>picture/hammer_1f528.png</file>
+    </qresource>
+    <qresource prefix="/menu">
+        <file>picture/maingrass.jpg</file>
+        <file>picture/buttonGreen.png</file>
+        <file>picture/shutdown.png</file>
+    </qresource>
+</RCC>

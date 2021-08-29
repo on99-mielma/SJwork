@@ -2,14 +2,52 @@
 #include "ui_widget.h"
 #include <QPainter>
 #include <QPen>
+#include <QDebug>
+#include <QBitmap>
+#include <QFileDialog>
+#include <QJsonDocument>
 #include <QPaintEvent>
+#include "config.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    this->setFixedSize(1050,850);
+    /*this->setFixedSize(1050,850);*/
+    initsqene();
+    //设置标签字号
+    QFont font;
+    QFont font4;
+    font4.setPixelSize(0);
+    font.setPixelSize(80);
+    /*ui->label->setFont(font);
+    //设置标签颜色
+    QPalette palette;
+    palette.setColor(QPalette::WindowText,Qt::white);
+    ui->label->setPalette(palette);*/
+
+    //设置按钮字号
+    font.setPixelSize(48);
+    //设置按钮背景
+    QPixmap pix = QPixmap(":/menu/picture/buttonGreen.png").scaledToHeight(50);
+    //设置不规则按钮
+    QPushButton *buttons[] = {ui->pushButton, ui->pushButton_2, ui->pushButton_3};
+    for (QPushButton *btn : buttons)
+    {
+        btn->setFont(font);
+        btn->setMask(pix.mask());
+        btn->setFixedSize(pix.size());
+        btn->setStyleSheet("border-image: url(:/menu/picture/buttonGreen.png)");
+    }
+    QPushButton *buttons4[] = {ui->pushButton_4};
+    for (QPushButton *btn : buttons4)
+    {
+        /*btn->setFont(font);
+        btn->setMask(pix.mask());*/
+        btn->setFixedSize(85,85);
+        btn->setStyleSheet("border-image: url(:/menu/picture/shutdown.png)");
+    }
 }
 
 Widget::~Widget()
@@ -17,7 +55,13 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::paintEvent(QPaintEvent *)
+void Widget::initsqene()
+{
+    setFixedSize(GAME_WIDTH,GAME_HEIGHT);
+    setWindowTitle(GAME_TITLE);
+}
+
+/*void Widget::paintEvent(QPaintEvent *)
 {
     QPainter p(this);
     QPen pen1;
@@ -56,4 +100,18 @@ void Widget::paintEvent(QPaintEvent *)
 
     //p.drawLine(100,100,1100,100);
     //p.drawLines();
+}*/
+void Widget::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+
+    //清空背景
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(Qt::black);
+    painter.drawRect(rect());
+
+    //绘制背景
+    QPixmap pix;
+    pix.load(":/menu/picture/maingrass.jpg");
+    painter.drawPixmap(0,0,GAME_WIDTH,GAME_HEIGHT,pix);
 }

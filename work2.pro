@@ -25,10 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        widget.cpp
+        widget.cpp \
+    game1.cpp
 
 HEADERS += \
-        widget.h
+        widget.h \
+    config.h \
+    game1.h
 
 FORMS += \
         widget.ui
+
+RESOURCES += \
+    picturelibrary.qrc

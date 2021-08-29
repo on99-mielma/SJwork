@@ -15,6 +15,9 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+    void initsqene();
+
+
 protected:
     void paintEvent(QPaintEvent *);
 
